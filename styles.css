@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+    background-image: url("./assests/icons/day.png");
+}
+.navbar{
+    /* background-color:rgb(209, 209, 209); */
+    height: 10vh;
+    justify-content: space-between;
+    
+}
+.logo, .search-btn{
+    height: 5vh;
+    margin:1vh 4vw;
+}
+.serachBox{
+    height:3.5vh;
+    width:70vw;
+    background: transparent;
+    color: red;
+    border: none;
+}
+.serachBox:focus{
+    background: white;
+    color: red;
+    border: none;
+}
