@@ -1597,7 +1597,7 @@ error.textContent="Please check the city name!"
 
 let getData = async () => {
   console.log(body.childNodes);
-  if (body.childNodes.length > 1) {
+  if (body.childNodes.length > 0) {
     while (body.hasChildNodes()) {
       body.removeChild(body.firstChild);
     }
