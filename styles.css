@@ -1,6 +1,8 @@
 body{
     margin: 0;
     background-image: url("./assests/icons/day.png");
+    color:white;
+    font-family: 'Lato', sans-serif;
 }
 .navbar{
     /* background-color:rgb(209, 209, 209); */
@@ -8,34 +10,53 @@ body{
     justify-content: space-between;
     
 }
-.logo, .search-btn{
+.logo{
     height: 5vh;
+    margin:1vh 4vw;
+}
+.search-btn{
+    height: 3vh;
     margin:1vh 4vw;
 }
 .searchBox{
     height:5vh;
-    width:70vw;
+    width:60vw;
     background: transparent;
-    color: red;
+    color: rgb(255, 254, 254);
+    font-size: 1.3rem;
     border: none;
 }
 .serachBox:focus{
     background: white;
-    color: red;
     border: none;
 }
-p{
-
-}
 .temp{
-    color:white;
-    font-family: 'Lato', sans-serif;
+    
     font-size: 5rem;
     margin-left: 10vw;
 }
-.cel{
-    color:white;
-    font-family: 'Lato', sans-serif;
+.cel{    
+    font-size: 3rem;   
+}
+.weatherIcon{
+    height: 15vh;
+    margin-left: 6vw;
+}
+.tempDiv{
+    margin:10vh 0 0 0;
+}
+.conditionDiv{
+    margin:0vh 4vh;
+    font-size: 1.2rem;
+}
+.condition{
+     /* margin:10vh 0; */
+    font-size: 2rem;
+}
+p{
+    margin:1vh 0;
+}
+h1{
     font-size: 3rem;
-    /* margin-left: 10vw; */
+    margin:10vh 4vh
 }
