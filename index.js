@@ -1591,8 +1591,8 @@ let s;
 const input = document.querySelector(".searchBox");
 const btn = document.querySelector(".search-btn");
 const body = document.querySelector(".body");
-const error = document.createElement("h1")
-error.textContent="Please check the city name!"
+const error = document.createElement("h1");
+error.textContent = "Please check the city name!";
 // const weatherData = {}
 
 let getData = async () => {
@@ -1606,10 +1606,10 @@ let getData = async () => {
   if (input.value !== "") {
     params.q = input.value;
     let res = await fetch(url + params.return(), options);
-    if(res.status===200){
+    if (res.status === 200) {
       let data = await res.json();
       console.log(data);
-  
+
       let tempDiv = document.createElement("div");
       tempDiv.classList.add("tempDiv");
       tempDiv.classList.add("flex");
@@ -1623,26 +1623,21 @@ let getData = async () => {
       img.classList.add("weatherIcon");
       if (data.weather[0].main == "Haze") {
         img.src = "./assests/icons/haze.png";
-      } 
-      else if (data.weather[0].main == "Mist") {
+      } else if (data.weather[0].main == "Mist") {
         img.src = "./assests/icons/haze.png";
-      } 
-      else if (data.weather[0].main == "Clouds") {
+      } else if (data.weather[0].main == "Clouds") {
         img.src = "./assests/icons/cloudy.png";
-      } 
-      else if (data.weather[0].main == "Rain") {
+      } else if (data.weather[0].main == "Rain") {
         img.src = "./assests/icons/rain.png";
-      } 
-      else if (data.weather[0].main == "Clear") {
+      } else if (data.weather[0].main == "Clear") {
         img.src = "./assests/icons/sun.png";
-      } 
-      else if (data.weather[0].main == "Storm") {
+      } else if (data.weather[0].main == "Storm") {
         img.src = "./assests/icons/storm.png";
       }
       tempDiv.appendChild(temp);
       tempDiv.appendChild(cel);
       tempDiv.appendChild(img);
-  
+
       let conditionDiv = document.createElement("div");
       let condition = document.createElement("p");
       let maxmin = document.createElement("span");
@@ -1656,14 +1651,12 @@ let getData = async () => {
       conditionDiv.appendChild(maxmin);
       conditionDiv.classList.add("conditionDiv");
       // conditionDiv.appendChild()
-  
+
       body.appendChild(tempDiv);
       body.appendChild(conditionDiv);
+    } else {
+      body.appendChild(error);
     }
-    else{
-      body.appendChild(error)
-    }
-   
   }
 };
 // let tempDiv = document.createElement("div");
@@ -1702,6 +1695,11 @@ let getData = async () => {
 // body.appendChild(conditionDiv);
 
 btn.addEventListener("click", getData);
+document.addEventListener("keyup", (e) => {
+  console.log(e)
+  if(e.code=="Enter")
+  getData();
+});
 
 // https://community-open-weather-map.p.rapidapi.com/weather?q=Kolkata&units=metric
 const options = {
