@@ -60,7 +60,7 @@ h1{
     font-size: 3rem;
     margin:10vh 4vh
 }
-@media screen and (min-width : 400px){
+@media screen and (min-width : 450px){
     body{
         background-image: url("./assests/icons/bg.webp");
         background-repeat: space;

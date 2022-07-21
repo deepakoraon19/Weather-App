@@ -1701,7 +1701,6 @@ document.addEventListener("keyup", (e) => {
   getData();
 });
 
-// https://community-open-weather-map.p.rapidapi.com/weather?q=Kolkata&units=metric
 const options = {
   method: "GET",
   headers: {
@@ -1710,8 +1709,3 @@ const options = {
   },
 };
 
-// console.log(url+params.return())
-// fetch(url+params.return(), options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err));
