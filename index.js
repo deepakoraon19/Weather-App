@@ -1696,7 +1696,7 @@ let getData = async () => {
 
 btn.addEventListener("click", getData);
 document.addEventListener("keyup", (e) => {
-  console.log(e)
+  // console.log(e)
   if(e.code=="Enter")
   getData();
 });

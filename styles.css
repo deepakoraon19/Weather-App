@@ -60,3 +60,39 @@ h1{
     font-size: 3rem;
     margin:10vh 4vh
 }
+@media screen and (min-width : 400px){
+    body{
+        background-image: url("./assests/icons/bg.webp");
+        background-repeat: space;
+    }
+    .navbar{
+        margin-top: 2vh;
+    }
+    .logo{
+        height: 8vh;
+        margin:3vh 4vw;
+    }
+    .search-btn{
+        height: 5vh;
+        margin:1vh 10vw 0 0;
+    }
+    .tempDiv{
+       align-items: center;
+    }
+    .conditionDiv{
+        margin-left:10vw;
+    }
+    .temp{
+    
+        font-size: 5rem;
+        margin-left: 10vw;
+    }
+    .cel{    
+        font-size: 3rem;   
+    }
+    .weatherIcon{
+        height: 25vh;
+        margin-left: 6vw;
+    }
+
+}
