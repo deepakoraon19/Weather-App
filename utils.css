@@ -7,3 +7,15 @@
 .ai-center{
     align-items:center;
 }
+.row{
+    flex-direction: row;
+}
+.column{
+    flex-direction: column;
+}
+.overflow{
+    overflow: scroll;
+}
+.overflow::-webkit-scrollbar {
+    display: none;
+  }

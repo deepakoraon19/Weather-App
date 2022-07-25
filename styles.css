@@ -47,6 +47,7 @@ body{
 }
 .conditionDiv{
     margin:0vh 4vh;
+    margin-bottom: 3vh;
     font-size: 1.2rem;
 }
 .condition{
@@ -59,6 +60,14 @@ p{
 h1{
     font-size: 3rem;
     margin:10vh 4vh
+}
+.hourData{
+    margin:0 4vw;    
+}
+.forecastImg{
+    width:5vh;
+    margin:1vh 0;
+
 }
 @media screen and (min-width : 500px){
     body{

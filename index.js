@@ -1578,7 +1578,7 @@ const fc = {
 };
 const url = "https://community-open-weather-map.p.rapidapi.com/weather?";
 const forcastURl =
-  "https://community-open-weather-map.p.rapidapi.com/forecast?";
+"https://community-open-weather-map.p.rapidapi.com/forecast?";
 const params = {
   q: "Kolkata",
   units: "metric",
@@ -1595,6 +1595,52 @@ const error = document.createElement("h1");
 error.textContent = "Please check the city name!";
 // const weatherData = {}
 
+let renderForecast = (forecast)=>{
+
+  let hourlyForecast = document.createElement("div")
+  let myDate;
+  let hourData ;
+  let hour;
+  let img;
+  let temp;
+  hourlyForecast.classList.add("flex")
+  for(let i=0;i<24;i++){
+    img=document.createElement("img")
+    hourData = document.createElement("div") 
+    myDate = new Date(forecast.list[i].dt*1000);  
+    myData=myDate.toLocaleString().slice(11,16)
+    hour = document.createElement("span")
+    temp = document.createElement("span")
+    hour.textContent = myData
+    if (forecast.list[i].weather[0].main == "Haze") {
+      img.src = "./assests/icons/haze.png";
+    } else if (forecast.list[i].weather[0].main == "Mist") {
+      img.src = "./assests/icons/haze.png";
+    } else if (forecast.list[i].weather[0].main == "Clouds") {
+      img.src = "./assests/icons/cloudy.png";
+    } else if (forecast.list[i].weather[0].main == "Rain") {
+      img.src = "./assests/icons/rain.png";
+    } else if (forecast.list[i].weather[0].main == "Clear") {
+      img.src = "./assests/icons/sun.png";
+    } else if (forecast.list[i].weather[0].main == "Thunderstorm") {
+      img.src = "./assests/icons/storm.png";
+    }
+    temp.textContent = forecast.list[i].main.temp.toString().slice(0, 2)+" °C"
+    img.classList.add("forecastImg")
+    hourData.appendChild(hour)
+    hourData.appendChild(img)
+    hourData.appendChild(temp)
+    hourData.classList.add("flex")
+    hourData.classList.add("column")
+    hourData.classList.add("hourData")
+    hourlyForecast.appendChild(hourData)
+    hourlyForecast.classList.add("overflow")
+    
+  }
+  body.appendChild(hourlyForecast)
+
+}
+
 let getData = async () => {
   console.log(body.childNodes);
   if (body.childNodes.length > 0) {
@@ -1609,7 +1655,7 @@ let getData = async () => {
     if (res.status === 200) {
       let data = await res.json();
       console.log(data);
-
+      
       let tempDiv = document.createElement("div");
       tempDiv.classList.add("tempDiv");
       tempDiv.classList.add("flex");
@@ -1631,13 +1677,14 @@ let getData = async () => {
         img.src = "./assests/icons/rain.png";
       } else if (data.weather[0].main == "Clear") {
         img.src = "./assests/icons/sun.png";
-      } else if (data.weather[0].main == "Storm") {
+      } else if (data.weather[0].main == "Thunderstorm") {
         img.src = "./assests/icons/storm.png";
       }
+      
       tempDiv.appendChild(temp);
       tempDiv.appendChild(cel);
       tempDiv.appendChild(img);
-
+      
       let conditionDiv = document.createElement("div");
       let condition = document.createElement("p");
       let maxmin = document.createElement("span");
@@ -1651,48 +1698,20 @@ let getData = async () => {
       conditionDiv.appendChild(maxmin);
       conditionDiv.classList.add("conditionDiv");
       // conditionDiv.appendChild()
-
+      
       body.appendChild(tempDiv);
       body.appendChild(conditionDiv);
     } else {
       body.appendChild(error);
     }
+
+    res = await fetch(forcastURl+ params.return(), options)
+    let foreCastData = await res.json()
+    renderForecast(foreCastData)
   }
+
+
 };
-// let tempDiv = document.createElement("div");
-// tempDiv.classList.add("tempDiv");
-// tempDiv.classList.add("flex");
-// let temp = document.createElement("span");
-// let cel = document.createElement("span");
-// cel.textContent = " °C";
-// temp.textContent = res.main.temp.toString().slice(0, 2);
-// temp.classList.add("temp");
-// cel.classList.add("cel");
-// let img = document.createElement("img");
-// img.classList.add("weatherIcon");
-// if (res.weather[0].main == "Haze") {
-//   img.src = "./assests/icons/cloudy.png";
-// }
-// tempDiv.appendChild(temp);
-// tempDiv.appendChild(cel);
-// tempDiv.appendChild(img);
-
-// let conditionDiv = document.createElement("div");
-// let condition = document.createElement("p");
-// let maxmin = document.createElement("span");
-// let feels = document.createElement("p");
-// condition.textContent = res.weather[0].main;
-// maxmin.textContent = `${res.main.temp_min} °C/${res.main.temp_max}`;
-// feels.textContent = `Feels like ${res.main.feels_like} °C   `;
-// conditionDiv.appendChild(condition);
-// condition.classList.add("condition");
-// conditionDiv.appendChild(feels);
-// conditionDiv.appendChild(maxmin);
-// conditionDiv.classList.add("conditionDiv");
-// // conditionDiv.appendChild()
-
-// body.appendChild(tempDiv);
-// body.appendChild(conditionDiv);
 
 btn.addEventListener("click", getData);
 document.addEventListener("keyup", (e) => {
