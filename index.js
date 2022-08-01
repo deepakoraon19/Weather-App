@@ -1576,14 +1576,15 @@ const fc = {
     sunset: 1658407946,
   },
 };
-const url = "https://community-open-weather-map.p.rapidapi.com/weather?";
+const url = "https://api.openweathermap.org/data/2.5/weather?";
 const forcastURl =
 "https://community-open-weather-map.p.rapidapi.com/forecast?";
 const params = {
   q: "Kolkata",
   units: "metric",
+  appid:"620f21190f8e5b6fd81b6cfd45f3a16c",
   return: function () {
-    return `q=${this.q}&units=${this.units}`;
+    return `q=${this.q}&units=${this.units}&appid=${this.appid}`;
   },
 };
 
