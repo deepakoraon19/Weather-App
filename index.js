@@ -1578,7 +1578,7 @@ const fc = {
 };
 const url = "https://api.openweathermap.org/data/2.5/weather?";
 const forcastURl =
-"https://community-open-weather-map.p.rapidapi.com/forecast?";
+"https://api.openweathermap.org/data/2.5/forecast?";
 const params = {
   q: "Kolkata",
   units: "metric",
@@ -1609,7 +1609,7 @@ let renderForecast = (forecast)=>{
     img=document.createElement("img")
     hourData = document.createElement("div") 
     myDate = new Date(forecast.list[i].dt*1000);  
-    myData=myDate.toLocaleString().slice(11,16)
+    myData=myDate.toLocaleString().slice(11,17)
     hour = document.createElement("span")
     temp = document.createElement("span")
     hour.textContent = myData
@@ -1722,10 +1722,6 @@ document.addEventListener("keyup", (e) => {
 });
 
 const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "ecca5138c5mshcc35d024dcf0f67p12a965jsn311cffb7a5ab",
-    "X-RapidAPI-Host": "community-open-weather-map.p.rapidapi.com",
-  },
+  method: "GET",  
 };
 
